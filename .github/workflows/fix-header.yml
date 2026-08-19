@@ -3,7 +3,7 @@ name: Fix Breeze header positioning
 on:
   push:
     branches:
-      - fix/header-static
+      - main
 
 permissions:
   contents: write
@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Move header outside scrolling main container
         run: |
           python - <<'PY'
@@ -22,16 +21,19 @@ jobs:
           s = p.read_text()
           old = '''  return (\n    <main className="breeze-app noise">\n      {!ready && <LoadingSequence onComplete={() => setReady(true)} />}\n      <Cursor />\n      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onSound={toggleSound} soundOn={soundOn} volume={volume} onVolume={updateVolume} />'''
           new = '''  return (\n    <>\n      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onSound={toggleSound} soundOn={soundOn} volume={volume} onVolume={updateVolume} />\n      <main className="breeze-app noise">\n      {!ready && <LoadingSequence onComplete={() => setReady(true)} />}\n      <Cursor />'''
-          if old not in s:\n              raise SystemExit('Expected Home header block not found; refusing to modify.')\n          s = s.replace(old, new, 1)\n          old_end = '''      <div className="fixed bottom-5 left-5 z-30 hidden items-center gap-2 mono text-[9px] uppercase tracking-[.14em] text-white/30 md:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> audio off by default / local only / asset: {audioAssetPath}</div>\n    </main>\n  );'''
+          if old not in s: raise SystemExit('Expected header block not found; refusing to modify.')
+          s = s.replace(old, new, 1)
+          old_end = '''      <div className="fixed bottom-5 left-5 z-30 hidden items-center gap-2 mono text-[9px] uppercase tracking-[.14em] text-white/30 md:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> audio off by default / local only / asset: {audioAssetPath}</div>\n    </main>\n  );'''
           new_end = '''      <div className="fixed bottom-5 left-5 z-30 hidden items-center gap-2 mono text-[9px] uppercase tracking-[.14em] text-white/30 md:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> audio off by default / local only / asset: {audioAssetPath}</div>\n      </main>\n    </>\n  );'''
-          if old_end not in s:\n              raise SystemExit('Expected Home closing block not found; refusing to modify.')\n          s = s.replace(old_end, new_end, 1)\n          p.write_text(s)\n          PY
-
-      - name: Commit and remove temporary workflow
+          if old_end not in s: raise SystemExit('Expected closing block not found; refusing to modify.')
+          p.write_text(s.replace(old_end, new_end, 1))
+          PY
+      - name: Commit fix and remove workflow
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add artifacts/breeze-portfolio/src/App.tsx
           git commit -m "Fix Breeze header staying fixed during scroll"
-          git rm .github/workflows/fix-header.yml
+          git rm .github/workflows/fix-header.yml artifacts/breeze-portfolio/.header-fix-trigger
           git commit -m "Remove temporary header fix workflow"
           git push
