@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Breeze Portfolio"
+description = "A cinematic personal portfolio for Breeze, an AI Engineer and Full-Stack Developer building AI agents, trading systems, modern web apps, and Web3 products."
+version = "1.0.0"
+id = "artifacts/breeze-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21819
+
+[services.development]
+run = "pnpm --filter @workspace/breeze-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/breeze-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/breeze-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21819"
+BASE_PATH = "/"

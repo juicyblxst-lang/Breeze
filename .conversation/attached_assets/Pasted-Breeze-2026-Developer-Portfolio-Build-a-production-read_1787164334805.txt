@@ -1,0 +1,847 @@
+Breeze 2026 Developer Portfolio
+Build a production-ready, fully responsive personal portfolio website for “Breeze”, an AI Engineer and Full-Stack Developer.
+This is NOT a generic developer portfolio, resume website, SaaS landing page, or template.
+The goal is to create a portfolio that feels like a premium interactive digital product launched in 2026 — the kind of website someone could realistically expect from an elite engineer/designer working at a company such as Apple, Microsoft, Anthropic, Vercel, or another world-class technology company.
+The website should immediately communicate:
+This person builds serious technology — and knows how to present it.
+The visual quality, motion design, typography, interaction design, responsiveness, performance, and attention to detail matter as much as the content.
+ 
+⸻
+ 
+1. CORE IDENTITY
+Display name:
+Breeze
+Professional title:
+AI Engineer & Full-Stack Developer
+Primary positioning:
+Building AI agents, trading systems, modern web apps, and Web3 products that solve real-world problems.
+Bio:
+I’m Breeze, an AI Engineer and Full Stack Developer. I build AI agents, trading systems, modern web apps, and Web3 products that solve real-world problems. I’ve got a bad habit of getting obsessed with problems. I don’t let them go until there’s something fast, useful, and something I’d actually use myself.
+Keep this personality.
+Do NOT make the portfolio sound like a corporate LinkedIn profile.
+The writing should feel intelligent, confident, slightly obsessive, technical, and human.
+Breeze should feel like someone who genuinely enjoys building things.
+ 
+⸻
+ 
+2. DESIGN DIRECTION
+Use these three websites as visual inspiration only:
+* EPIC Agency — https://www.epic.net/en/
+* Eszter Bial — https://eszterbial.com/
+* Unseen Studio — https://unseen.co/
+Do NOT copy their source code, exact layouts, branding, illustrations, text, assets, or distinctive proprietary elements.
+Instead, synthesize their strongest design principles into a completely original Breeze identity.
+Inspiration weighting
+Unseen Studio — approximately 50%
+Borrow the feeling of:
+* cinematic interaction
+* immersive transitions
+* sophisticated motion
+* intentional loading experience
+* sound toggle
+* micro-interactions
+* experimental but controlled interaction
+* premium digital-art direction
+* transitions between major sections
+* feeling that the website itself is an experience
+Unseen currently uses an explicit “Enter without audio” / sound toggle concept and an immersive project exploration experience. Use that philosophy, but make Breeze’s implementation more practical for a developer portfolio. (Unseen Studio®)
+Eszter Bial — approximately 30%
+Borrow the feeling of:
+* bold typography
+* strong personal identity
+* large type
+* confident whitespace
+* minimalist composition
+* simple but memorable portfolio structure
+* personality instead of corporate stiffness
+The reference site uses a strong personal introduction followed by selected projects and a direct contact section. Use that simplicity as inspiration. (eszterbial.com)
+EPIC Agency — approximately 20%
+Borrow the feeling of:
+* polished spacing
+* strong visual hierarchy
+* sophisticated project presentation
+* clear work categorization
+* professional digital-product quality
+* balance between technical sophistication and creative presentation
+EPIC’s current site emphasizes websites, digital products, motion, and selected work, with clear categories and strong presentation. (EPIC agency)
+ 
+⸻
+ 
+3. IMPORTANT DESIGN RULE
+Do NOT simply combine three websites into a Frankenstein design.
+Create a new Breeze visual identity inspired by their principles.
+The result should feel:
+* futuristic
+* premium
+* technical
+* creative
+* slightly experimental
+* minimal
+* confident
+* immersive
+* fast
+* sophisticated
+Avoid:
+* generic gradients everywhere
+* excessive glassmorphism
+* generic AI blobs
+* excessive neon
+* cheesy “hacker” aesthetics
+* overly rounded SaaS cards
+* template-looking layouts
+* excessive animations that hurt usability
+* clutter
+* huge amounts of meaningless text
+The website should feel expensive.
+ 
+⸻
+ 
+4. COLOR SYSTEM
+Create a sophisticated dark-first visual system.
+Primary direction:
+* near-black / deep charcoal background
+* off-white typography
+* restrained secondary gray tones
+* one carefully selected accent color
+* subtle atmospheric gradients only where useful
+Do NOT make the entire site neon.
+The accent should feel modern and technical rather than gaming-oriented.
+Build the color system using CSS variables/design tokens so the accent color can easily be changed later.
+The website should support:
+* dark mode as the primary experience
+* optional light mode only if it can be implemented without compromising the visual identity
+Dark mode should be the default.
+ 
+⸻
+ 
+5. TYPOGRAPHY
+Typography is extremely important.
+Use a premium modern sans-serif font stack.
+Use:
+* very large display typography for the hero
+* strong hierarchy
+* tight but intentional letter spacing
+* readable body text
+* different type scales for project titles, metadata, labels, and descriptions
+The typography should feel editorial and high-end.
+Do NOT use generic oversized text just for the sake of being “modern.”
+Typography should communicate hierarchy.
+ 
+⸻
+ 
+6. HERO SECTION
+The hero should immediately establish Breeze.
+Do not start with:
+“Hi, my name is Breeze and I’m a developer.”
+Instead create a visually striking introduction.
+Example conceptual structure:
+BREEZE
+AI ENGINEER & FULL-STACK DEVELOPER
+Then a concise statement:
+I build AI agents, trading systems, modern web apps, and Web3 products that solve real-world problems.
+Then subtle supporting copy based on the personality:
+I’ve got a bad habit of getting obsessed with problems.
+The hero should feel alive.
+Implement subtle motion such as:
+* typography entrance animation
+* staggered text reveal
+* subtle background movement
+* cursor interaction
+* gentle parallax
+* subtle atmospheric effects
+* animated metadata
+* refined hover states
+Do NOT overload the hero.
+The first impression should be powerful but clean.
+ 
+⸻
+ 
+7. CUSTOM CURSOR
+Implement a premium custom cursor on desktop.
+The cursor should:
+* remain subtle
+* react to interactive elements
+* expand/change state over buttons
+* respond to project cards
+* have smooth interpolation
+* never interfere with usability
+On mobile/tablet, disable custom cursor behavior automatically.
+The normal cursor should remain available where accessibility requires it.
+ 
+⸻
+ 
+8. SCROLL EXPERIENCE
+Scrolling should feel extremely polished.
+Implement:
+* smooth scrolling where appropriate
+* scroll-triggered reveals
+* staggered text animations
+* subtle parallax
+* section transitions
+* project card motion
+* viewport-aware animation
+Use motion sparingly.
+Every animation should have a purpose.
+Respect:
+prefers-reduced-motion
+Users who disable motion should receive a clean, accessible version of the website.
+ 
+⸻
+ 
+9. SOUND DESIGN
+Include optional ambient sound inspired by the philosophy of Unseen Studio.
+IMPORTANT:
+Audio must NEVER autoplay unexpectedly.
+Create an obvious:
+Sound: OFF / ON
+control.
+The default state should be OFF.
+When enabled, use a very calm, atmospheric, futuristic ambient background sound.
+The sound should feel:
+* calm
+* minimal
+* futuristic
+* slightly cinematic
+* non-distracting
+* appropriate for a developer/AI portfolio
+Do NOT use loud music.
+Also implement extremely subtle UI sounds for:
+* button clicks
+* navigation
+* opening a project
+* switching project categories
+* major transitions
+Sounds should be short and extremely quiet.
+Do not add sound to every tiny interaction.
+Include a global volume control or at minimum a clear mute toggle.
+Store the user’s sound preference locally.
+If audio assets are not available during initial generation, create the audio architecture and clearly mark the exact asset locations/placeholders so I can drop the final audio files in later without changing the UI.
+ 
+⸻
+ 
+10. NAVIGATION
+Create a minimal floating navigation system.
+Possible navigation:
+* Home
+* Work
+* About
+* Skills
+* Contact
+The navigation should not dominate the page.
+Use subtle motion when:
+* opening
+* closing
+* hovering
+* scrolling
+On mobile, use a refined animated menu.
+ 
+⸻
+ 
+11. WORK / PROJECTS
+This is the most important section after the hero.
+Create a premium project explorer.
+The main categories are:
+1. AI Agents
+2. Trading Bots
+3. Web Apps
+4. Web3
+Use category navigation that feels interactive rather than like basic tabs.
+Possible interaction:
+AI AGENTS / TRADING BOTS / WEB APPS / WEB3
+Switching categories should have a smooth animated transition.
+Do NOT reload the page.
+ 
+⸻
+ 
+12. PROJECT DATA ARCHITECTURE
+This is extremely important.
+Make ALL project information data-driven.
+Create a centralized project data structure/configuration so that I can later add, remove, or edit projects without touching the UI components.
+The UI should consume project data.
+Each project should support fields such as:
+* project name
+* category
+* short tagline
+* problem
+* solution
+* description
+* key features
+* technology stack
+* GitHub URL
+* live demo URL
+* screenshots
+* video/demo media
+* metrics
+* status
+* year
+* featured flag
+If a field is empty, the UI should gracefully hide that element.
+Do NOT display ugly empty fields.
+This means that after the initial build, my main job should simply be:
+replace/add project information.
+I should NOT have to redesign the website to add projects.
+ 
+⸻
+ 
+13. PROJECT CARD DESIGN
+Each project card should feel like a mini case study.
+Include:
+* project name
+* category
+* short description
+* visual preview
+* technology tags
+* subtle hover animation
+* animated arrow or interaction indicator
+On hover:
+* image/video can subtly scale
+* typography can shift
+* cursor can react
+* metadata can animate
+* subtle sound can optionally play if sound is enabled
+Do not make hover effects excessive.
+ 
+⸻
+ 
+14. PROJECT DETAIL EXPERIENCE
+When a project is selected, create a beautiful project detail experience.
+Prefer an animated route/page transition or full-screen project presentation rather than a boring modal.
+The project detail page should support:
+Overview
+Project title and concise explanation.
+The Problem
+What problem did this project solve?
+The Solution
+What did Breeze build?
+How It Works
+Optional architecture/process section.
+Key Features
+A clean list of major capabilities.
+Technology
+Interactive technology badges.
+Results / Metrics
+Show measurable results when available.
+Media
+Screenshots, video, GIFs, diagrams, etc.
+Links
+GitHub / Live Demo buttons.
+If information is missing, hide the section rather than showing fake content.
+ 
+⸻
+ 
+15. AI AGENTS CATEGORY
+Create exactly 3 project slots initially.
+Project 1 — Gizmo
+Name:
+Gizmo
+Category:
+AI Agent
+Core description:
+Gizmo is an AI-powered crypto intelligence agent that analyzes lead-lag relationships between digital assets and explains market behavior in natural language.
+Problem:
+Instead of requiring users to stare at candlestick charts and manually analyze relationships between assets, Gizmo interprets the market data and identifies lead-lag relationships across crypto pairs.
+The supported assets currently include approximately six crypto pairs/assets such as:
+* Bitcoin
+* Solana
+* Ethereum
+* Hyperliquid / HYPE
+* Dogecoin
+* and another supported asset
+Do NOT invent exact technical implementation details.
+Solution:
+Gizmo translates complex chart and market behavior into natural-language insights and allows users to interact conversationally with the agent and ask questions about the observed market relationships.
+Leave these fields as editable placeholders:
+* [TECH STACK]
+* [KEY FEATURE 1]
+* [KEY FEATURE 2]
+* [KEY FEATURE 3]
+* [GITHUB URL]
+* [LIVE DEMO URL]
+* [SCREENSHOTS]
+* [VIDEO / DEMO]
+* [METRICS / RESULTS]
+Do not invent these details.
+Project 2 — AI Agent Placeholder
+Use the exact same project architecture.
+Use placeholder values:
+[AI AGENT PROJECT NAME]
+[SHORT DESCRIPTION]
+[PROBLEM]
+[SOLUTION]
+[KEY FEATURES]
+[TECH STACK]
+[GITHUB URL]
+[LIVE DEMO URL]
+[MEDIA]
+[METRICS]
+Project 3 — AI Agent Placeholder
+Use the exact same reusable architecture.
+All content must be editable through the centralized project data.
+ 
+⸻
+ 
+16. TRADING BOTS CATEGORY
+Create exactly 3 project slots.
+Project 1 — Polymarket Prediction Bot
+Name:
+Polymarket Prediction Bot
+Category:
+Trading Bots
+Use the same detailed project structure as Gizmo.
+Leave editable placeholders for:
+* [SHORT DESCRIPTION]
+* [PROBLEM]
+* [SOLUTION]
+* [KEY FEATURES]
+* [TECH STACK]
+* [GITHUB URL]
+* [LIVE DEMO URL]
+* [SCREENSHOTS]
+* [VIDEO / DEMO]
+* [METRICS / RESULTS]
+Do NOT invent technical details.
+Project 2 — Trading Bot Placeholder
+[TRADING BOT PROJECT NAME]
+Same reusable project schema.
+Project 3 — Trading Bot Placeholder
+[TRADING BOT PROJECT NAME]
+Same reusable project schema.
+ 
+⸻
+ 
+17. WEB APPS CATEGORY
+I have not finalized the projects for this category yet.
+Create 3 fully designed project slots.
+Do NOT invent fake projects.
+Use:
+[WEB APP PROJECT NAME]
+[SHORT DESCRIPTION]
+[PROBLEM]
+[SOLUTION]
+[KEY FEATURES]
+[TECH STACK]
+[GITHUB URL]
+[LIVE DEMO URL]
+[SCREENSHOTS]
+[VIDEO / DEMO]
+[METRICS / RESULTS]
+The UI must look complete even though the content is placeholder data.
+ 
+⸻
+ 
+18. WEB3 CATEGORY
+Create 3 fully designed project slots.
+Do NOT invent fake projects.
+Use the same reusable project structure.
+Placeholders:
+[WEB3 PROJECT NAME]
+[SHORT DESCRIPTION]
+[PROBLEM]
+[SOLUTION]
+[KEY FEATURES]
+[TECH STACK]
+[GITHUB URL]
+[LIVE DEMO URL]
+[SCREENSHOTS]
+[VIDEO / DEMO]
+[METRICS / RESULTS]
+ 
+⸻
+ 
+19. PROJECT PLACEHOLDER BEHAVIOR
+The placeholders are temporary content-management markers.
+Do not make the final website look unfinished.
+If a project has not been filled in yet:
+* use elegant neutral placeholder copy
+* do not invent achievements
+* do not invent metrics
+* do not fabricate GitHub links
+* do not fabricate demo links
+* do not make fake claims
+The UI should communicate that the project slot exists without making the site look broken.
+ 
+⸻
+ 
+20. SKILLS SECTION
+Create a sophisticated interactive skills section relevant to Breeze’s work.
+Organize skills into groups such as:
+Languages
+* JavaScript
+* TypeScript
+* Python
+* HTML
+* CSS
+* SQL
+Frontend
+* React
+* Next.js
+* modern CSS
+* responsive UI
+* animation/motion
+Backend
+* Node.js
+* APIs
+* databases
+* authentication
+* backend architecture
+AI / ML / Agents
+* LLM APIs
+* AI agents
+* agent orchestration
+* prompt engineering
+* tool calling
+* RAG
+* AI automation
+Trading / Data
+* market data
+* algorithmic trading concepts
+* trading bots
+* data analysis
+* APIs
+* real-time systems
+Web3
+* blockchain integrations
+* wallet integrations
+* smart-contract interaction
+* Web3 APIs
+Tools
+* Git
+* GitHub
+* REST APIs
+* deployment platforms
+* cloud infrastructure
+IMPORTANT:
+Do not falsely claim Breeze has professional-level expertise in every technology.
+Structure this section so technologies can easily be added/removed later.
+Use icons where available.
+Avoid meaningless “90% / 95% skill” progress bars.
+Prefer categories, badges, interactive clusters, or visually interesting representations.
+ 
+⸻
+ 
+21. ABOUT SECTION
+Create a short personality-driven About section.
+Use the existing Breeze bio.
+The section should feel personal, not like a resume.
+Include a visual/interactive element that reinforces the “builder” personality.
+Possible copy direction:
+I like solving problems so you don’t have to.
+Then:
+I’ve got a bad habit of getting obsessed with problems. I don’t let them go until there’s something fast, useful, and something I’d actually use myself.
+Do not add education or an employment timeline.
+ 
+⸻
+ 
+22. CONTACT SECTION
+Create a powerful closing section.
+Possible direction:
+Got a problem worth solving?
+or
+Let’s build something.
+Keep the copy short.
+Include social/contact buttons for:
+Telegram
+Handle:
+@breeze0x
+The button should open the direct Telegram profile/chat destination.
+Use:
+https://t.me/breeze0x
+Discord
+Handle:
+@0xbreeze
+Because a Discord username does not always map to a universally valid direct-DM URL, structure the button/link as a configurable value:
+[DISCORD_DIRECT_LINK]
+The displayed identity can be:
+@0xbreeze
+Do not invent a Discord URL.
+Make the Discord destination a single easily editable configuration value.
+X / Twitter
+Do NOT include X/Twitter.
+Breeze does not currently have an X account.
+ 
+⸻
+ 
+23. SOCIAL BUTTON DESIGN
+Use premium pill-shaped buttons.
+Example:
+Telegram ↗
+Discord ↗
+Buttons should have:
+* subtle hover animation
+* cursor response
+* slight magnetic movement
+* optional micro sound
+* smooth transition
+Do not make the buttons huge.
+ 
+⸻
+ 
+24. FOOTER
+Create a minimal footer.
+Include:
+Breeze
+AI Engineer & Full-Stack Developer
+Social buttons.
+Copyright/year.
+Keep it extremely clean.
+ 
+⸻
+ 
+25. LOADING EXPERIENCE
+Create a short premium loading sequence.
+It should feel inspired by high-end interactive studios but remain fast.
+Potential sequence:
+* dark screen
+* Breeze mark/name
+* subtle percentage/loading indicator
+* typography reveal
+* smooth transition into homepage
+Do not create a 10-second loading animation.
+The user should be able to access the website quickly.
+Prioritize performance over theatrics.
+ 
+⸻
+ 
+26. RESPONSIVENESS
+The website must be excellent on:
+* desktop
+* laptop
+* tablet
+* mobile
+Do NOT simply shrink the desktop layout.
+Create intentional mobile compositions.
+On mobile:
+* disable custom cursor
+* simplify heavy motion
+* optimize media
+* keep typography readable
+* keep navigation easy
+* maintain the premium feeling
+ 
+⸻
+ 
+27. PERFORMANCE
+This is a production website.
+Prioritize:
+* fast initial load
+* lazy loading
+* optimized images
+* responsive image sizing
+* code splitting where appropriate
+* minimal JavaScript where possible
+* GPU-friendly animations
+* avoiding unnecessary WebGL
+* avoiding animation libraries when native CSS is sufficient
+* efficient event listeners
+Do not sacrifice performance for visual effects.
+ 
+⸻
+ 
+28. ACCESSIBILITY
+Implement:
+* semantic HTML
+* keyboard navigation
+* visible focus states
+* accessible buttons
+* proper contrast
+* reduced-motion support
+* accessible navigation
+* audio controls that are clearly labeled
+Animations must never prevent someone from using the site.
+ 
+⸻
+ 
+29. SEO
+Make the website production-ready for search engines.
+Include:
+* title
+* meta description
+* Open Graph metadata
+* Twitter/X metadata where applicable, but do not create an X profile
+* canonical URL placeholder
+* semantic headings
+* structured metadata where appropriate
+* favicon
+* social preview image placeholder
+Suggested title:
+Breeze — AI Engineer & Full-Stack Developer
+Suggested description:
+Breeze builds AI agents, trading systems, modern web apps, and Web3 products that solve real-world problems.
+ 
+⸻
+ 
+30. DOMAIN / DEPLOYMENT
+The website must be structured as a real production website.
+Do NOT brand the website as:
+* “Made with Lovable”
+* “Lovable Portfolio”
+* “AI Generated Portfolio”
+* anything similar
+Lovable branding must not appear in the website UI.
+Use the project identity:
+Breeze
+Prepare the site so it can be deployed to a professional custom domain.
+Potential domain direction:
+breeze.dev
+However, DO NOT assume this domain is available.
+Make the production domain configurable through environment/configuration.
+The final website should be ready for me to connect a custom domain after deployment.
+ 
+⸻
+ 
+31. CONTENT MANAGEMENT — VERY IMPORTANT
+I do NOT want to spend time redesigning the website later.
+After the first build, my primary task should be:
+adding and replacing project information.
+Therefore:
+Create a centralized project/content configuration.
+Make it extremely obvious where I can edit:
+* project name
+* description
+* problem
+* solution
+* features
+* technologies
+* GitHub
+* live demo
+* images
+* videos
+* metrics
+* category
+The visual components should remain untouched.
+If possible, structure the project data in one clear file/module.
+Use reusable components.
+Example architecture:
+* ProjectExplorer
+* ProjectCategory
+* ProjectCard
+* ProjectDetail
+* ProjectMedia
+* TechStack
+* SocialLinks
+* SoundController
+* Navigation
+* Hero
+* Skills
+* About
+* Contact
+Do not duplicate project UI code unnecessarily.
+ 
+⸻
+ 
+32. TECHNICAL IMPLEMENTATION
+Use a modern production-grade stack appropriate for Lovable.
+Prefer:
+* React
+* TypeScript
+* modern CSS / Tailwind where appropriate
+* a reliable animation system
+* accessible components
+* clean component architecture
+Use a motion library only where it genuinely improves the experience.
+The code must be:
+* clean
+* maintainable
+* componentized
+* responsive
+* production-ready
+Do not create one gigantic component.
+ 
+⸻
+ 
+33. MICRO-INTERACTIONS
+Add tasteful micro-interactions throughout the website.
+Examples:
+* magnetic buttons
+* animated arrows
+* project-card hover states
+* text reveal
+* image transitions
+* category switching
+* navigation transitions
+* cursor response
+* sound feedback
+* subtle background movement
+Every interaction should feel intentional.
+Avoid “everything moves all the time.”
+ 
+⸻
+ 
+34. VISUAL EFFECTS
+Use sophisticated effects such as:
+* subtle grain/noise
+* atmospheric gradients
+* soft glow
+* masked image reveals
+* smooth clipping transitions
+* subtle distortion where appropriate
+* layered typography
+* controlled parallax
+But keep them restrained.
+The website should still look good with effects disabled.
+ 
+⸻
+ 
+35. DO NOT FABRICATE
+This is critical.
+Never invent:
+* companies Breeze worked for
+* clients
+* employment history
+* degrees
+* certifications
+* project metrics
+* GitHub repositories
+* live demos
+* technology experience
+* testimonials
+* awards
+If information isn’t provided, use a placeholder.
+The portfolio should communicate ambition without lying.
+ 
+⸻
+ 
+36. FINAL UX GOAL
+When someone visits the site, the experience should roughly feel like:
+Arrival → curiosity → “who is this?” → exploration → “oh, this person actually builds things” → project deep dive → technical credibility → personality → contact.
+It should feel like discovering an engineer’s digital world rather than reading a CV.
+The website should make visitors want to click around.
+ 
+⸻
+ 
+37. FINAL QUALITY BAR
+Before considering the build complete, review the entire website as if you were an award-winning creative developer.
+Ask:
+* Does this feel like 2026?
+* Does it feel premium?
+* Does it feel original?
+* Does it feel fast?
+* Does the motion feel intentional?
+* Does the typography feel expensive?
+* Are the project cards impressive?
+* Does mobile feel equally considered?
+* Is the sound experience optional and tasteful?
+* Can I add projects without touching the UI?
+* Are there any fake claims?
+* Are there any broken links?
+* Are there empty-looking sections?
+* Does anything feel like a generic AI-generated portfolio?
+If anything feels generic, improve it.
+ 
+⸻
+ 
+38. MOST IMPORTANT REQUIREMENT
+Build the finished portfolio experience now.
+Do not give me a wireframe.
+Do not give me a skeleton.
+Do not give me a basic landing page.
+Do not leave major UI sections unfinished.
+Build the complete visual system, responsive layouts, animations, interactions, project architecture, sound architecture, navigation, skills, about section, contact section, SEO structure, and deployment-ready code.
+The only content I should need to change later is primarily the project data and media.
+The website should already look finished before I add the final real project details.
+Make every placeholder intentionally designed so that replacing it with real information requires content editing, not redesigning.
+The final result should feel like:
+Breeze — a serious engineer with a creative studio-quality digital presence.
+Not a resume.
+Not a template.
+A product.
