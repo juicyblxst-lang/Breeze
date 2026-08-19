@@ -337,10 +337,11 @@ function Home() {
     localStorage.setItem('breeze-volume', String(next));
   };
   return (
-    <main className="breeze-app noise">
+    <>
+      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onSound={toggleSound} soundOn={soundOn} volume={volume} onVolume={updateVolume} />
+      <main className="breeze-app noise">
       {!ready && <LoadingSequence onComplete={() => setReady(true)} />}
       <Cursor />
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} onSound={toggleSound} soundOn={soundOn} volume={volume} onVolume={updateVolume} />
       <Hero />
       <Intro />
       <Work />
@@ -349,7 +350,8 @@ function Home() {
       <Contact />
       <Footer />
       <div className="fixed bottom-5 left-5 z-30 hidden items-center gap-2 mono text-[9px] uppercase tracking-[.14em] text-white/30 md:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> audio off by default / local only / asset: {audioAssetPath}</div>
-    </main>
+      </main>
+    </>
   );
 }
 
