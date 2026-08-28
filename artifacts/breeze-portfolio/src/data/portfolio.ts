@@ -10,6 +10,7 @@ export type Project = {
   status: 'Featured' | 'Exploring';
   accent: string;
   index: string;
+  link?: string;
 };
 
 export const discordDestination = '';
@@ -123,14 +124,15 @@ export const portfolio = {
     },
     {
       id: 'web3-01',
-      title: 'Untitled / 01',
+      title: 'AgentForge',
       category: 'Web3',
-      eyebrow: 'Protocol, people, possibility',
-      description: 'A Web3 product still looking for its clearest shape.',
-      detail: 'I like the technical strangeness of Web3: new primitives, rough edges, and a lot of room for better products.',
-      status: 'Exploring',
+      eyebrow: 'AI agent marketplace and execution platform',
+      description: 'AgentForge is a real-world AI agent marketplace and execution platform built around ERC-8004 and ERC-8183. It lets users discover real AI agents on BSC, verify their identity and capabilities, review what the agent is authorized to do, connect their wallet, and execute real on-chain tasks through a controlled permission and payment flow.',
+      detail: 'AgentForge is a real-world AI agent marketplace and execution platform built around ERC-8004 and ERC-8183. It lets users discover real AI agents on BSC, verify their identity and capabilities, review what the agent is authorized to do, connect their wallet, and execute real on-chain tasks through a controlled permission and payment flow.',
+      status: 'Featured',
       accent: '#d5ff65',
       index: '01',
+      link: 'https://agent-forge-r8kxno04m-juicyblxst-s-projects.vercel.app/',
     },
     {
       id: 'web3-02',
