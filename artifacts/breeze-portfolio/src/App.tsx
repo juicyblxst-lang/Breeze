@@ -231,6 +231,11 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
             <p className="eyebrow mb-5" style={{ color: project.accent }}>{project.eyebrow}</p>
             <p className="display text-2xl font-semibold leading-tight tracking-[-.05em] text-[#e8e7dc] md:text-4xl">{project.description}</p>
             <p className="mt-8 text-sm leading-relaxed text-[#8f918c]">{project.detail}</p>
+            {project.link ? (
+              <a href={project.link} target="_blank" rel="noreferrer" className="group mt-8 inline-flex items-center gap-2 border-b border-[#d5ff65]/50 pb-1 eyebrow text-[#e8e7dc] transition-colors hover:border-[#d5ff65] hover:text-[#d5ff65]" data-testid={`link-project-${project.id}`}>
+                explore project <ArrowUpRight size={13} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            ) : null}
             <div className="mt-10 flex items-center gap-3 border-t border-white/15 pt-5 mono text-[10px] uppercase tracking-[.14em] text-[#8f918c]"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> case study / details to follow</div>
           </div>
         </div>
