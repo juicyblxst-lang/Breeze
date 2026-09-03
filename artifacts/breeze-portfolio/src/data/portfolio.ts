@@ -44,7 +44,7 @@ export const portfolio = {
       status: 'Featured',
       accent: '#d5ff65',
       index: '02',
-      link: 'https://agent-forge-r8kxno04m-juicyblxst-s-projects.vercel.app/',
+      link: 'https://agent-forge-beige.vercel.app/',
     },
     {
       id: 'agent-03',
