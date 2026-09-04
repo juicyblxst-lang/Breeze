@@ -71,7 +71,7 @@ export const portfolio = {
     },
     {
       id: 'trading-02',
-      title: 'Untitled / 02',
+      title: 'Coming Soon',
       category: 'Trading Bots',
       eyebrow: 'Signal / patience',
       description: 'A future system with no convenient numbers attached.',
@@ -82,7 +82,7 @@ export const portfolio = {
     },
     {
       id: 'trading-03',
-      title: 'Untitled / 03',
+      title: 'Coming Soon',
       category: 'Trading Bots',
       eyebrow: 'The edge is in the details',
       description: 'A blank canvas for the next market experiment.',
@@ -104,7 +104,7 @@ export const portfolio = {
     },
     {
       id: 'web-02',
-      title: 'Untitled / 02',
+      title: 'Coming Soon',
       category: 'Web Apps',
       eyebrow: 'Useful first, pretty second',
       description: 'A future tool with a clean surface and a sharp purpose.',
@@ -115,7 +115,7 @@ export const portfolio = {
     },
     {
       id: 'web-03',
-      title: 'Untitled / 03',
+      title: 'Coming Soon',
       category: 'Web Apps',
       eyebrow: 'A little more considered',
       description: 'Another open slot for something worth using.',
@@ -137,7 +137,7 @@ export const portfolio = {
     },
     {
       id: 'web3-02',
-      title: 'Untitled / 02',
+      title: 'Coming Soon',
       category: 'Web3',
       eyebrow: 'Still investigating',
       description: 'Somewhere in the space between trust and interaction.',
@@ -148,7 +148,7 @@ export const portfolio = {
     },
     {
       id: 'web3-03',
-      title: 'Untitled / 03',
+      title: 'Coming Soon',
       category: 'Web3',
       eyebrow: 'One more open thread',
       description: 'A future Web3 product waiting for the right problem.',
