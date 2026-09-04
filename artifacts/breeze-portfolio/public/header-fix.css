@@ -23,12 +23,17 @@
   color: #8f918c !important;
 }
 
-/* AgentForge is longer than the other featured titles. Keep it on one visual line
-   at desktop widths so its modal title aligns with Gizmo and Known without
-   changing the shared modal layout. */
+/* AgentForge needs responsive sizing because its name is longer than Gizmo/Known. */
+.detail-backdrop[aria-label="AgentForge details"] h2 {
+  font-size: clamp(3rem, 11vw, 6rem) !important;
+  line-height: .9 !important;
+  max-width: 100% !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
 @media (min-width: 768px) {
   .detail-backdrop[aria-label="AgentForge details"] h2 {
-    font-size: 6rem !important;
     white-space: nowrap !important;
   }
 }
