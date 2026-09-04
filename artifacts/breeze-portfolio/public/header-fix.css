@@ -7,3 +7,18 @@
   z-index: 40 !important;
   transform: none !important;
 }
+
+/* Placeholder project titles are intentionally subdued until the work is ready. */
+[data-testid="card-project-trading-02"] h3,
+[data-testid="card-project-trading-03"] h3,
+[data-testid="card-project-web-02"] h3,
+[data-testid="card-project-web-03"] h3,
+[data-testid="card-project-web3-02"] h3,
+[data-testid="card-project-web3-03"] h3,
+.detail-backdrop[aria-label="Coming Soon details"] h2 {
+  color: #8f918c !important;
+}
+
+.detail-backdrop[aria-label="Coming Soon details"] h2 span {
+  color: #8f918c !important;
+}
