@@ -22,3 +22,13 @@
 .detail-backdrop[aria-label="Coming Soon details"] h2 span {
   color: #8f918c !important;
 }
+
+/* AgentForge is longer than the other featured titles. Keep it on one visual line
+   at desktop widths so its modal title aligns with Gizmo and Known without
+   changing the shared modal layout. */
+@media (min-width: 768px) {
+  .detail-backdrop[aria-label="AgentForge details"] h2 {
+    font-size: 6rem !important;
+    white-space: nowrap !important;
+  }
+}
