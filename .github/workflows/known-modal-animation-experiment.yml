@@ -1,0 +1,110 @@
+name: Apply Known modal animation experiment
+
+on:
+  push:
+    branches: [experiment/known-modal-animation]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch Known modal
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+
+          root = Path('artifacts/breeze-portfolio')
+          app = root / 'src/App.tsx'
+          component = root / 'src/components/known-animation-preview.tsx'
+          text = app.read_text()
+
+          import_line = "import { KnownAnimationPreview } from '@/components/known-animation-preview';\n"
+          if import_line not in text:
+              text = text.replace("import { portfolio, audioAssetPath, discordDestination, type Project, type ProjectCategory } from '@/data/portfolio';\n", "import { portfolio, audioAssetPath, discordDestination, type Project, type ProjectCategory } from '@/data/portfolio';\n" + import_line, 1)
+
+          marker = "<KnownAnimationPreview />"
+          if marker not in text:
+              pattern = r'(<h[1-6][^>]*>\\{selected\\.title\\}</h[1-6]>)'
+              text, count = re.subn(pattern, marker + r'\\n\\1', text, count=1)
+              if count != 1:
+                  raise SystemExit('Could not locate selected project title in App.tsx')
+
+          app.write_text(text)
+
+          component.parent.mkdir(parents=True, exist_ok=True)
+          component.write_text(r'''import { useEffect, useState } from 'react';
+
+const frames = [
+  { label: 'inbox', title: 'Maya Rivera', body: 'Question about my order', context: 'Customer found', active: 0 },
+  { label: 'conversation', title: 'Maya Rivera', body: 'Order #1048 arrived with the wrong size.', context: '2 memories surfaced', active: 1 },
+  { label: 'customer context', title: 'Maya Rivera', body: 'Returning customer · 4 orders', context: 'Preference: medium', active: 2 },
+  { label: 'AI response', title: 'Draft ready', body: 'I found Maya’s previous order and size preference.', context: 'Memory used', active: 3 },
+];
+
+export function KnownAnimationPreview() {
+  const [frame, setFrame] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setFrame((value) => (value + 1) % frames.length), 1750);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const current = frames[frame];
+
+  return (
+    <div className="mb-7 w-full max-w-[330px] overflow-hidden border border-white/15 bg-[#101116] shadow-2xl" aria-label="Known product animation preview">
+      <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
+        <span className="mono text-[8px] uppercase tracking-[.16em] text-[#8f918c]">known / product preview</span>
+        <span className="flex items-center gap-1.5 mono text-[8px] text-[#d5ff65]"><span className="h-1.5 w-1.5 rounded-full bg-[#d5ff65]" /> live</span>
+      </div>
+      <div className="relative h-[155px] p-3">
+        <div className="grid h-full grid-cols-[68px_1fr] gap-2">
+          <div className="border border-white/10 bg-[#15171d] p-2">
+            <div className="mb-3 h-1 w-7 bg-white/20" />
+            {[0, 1, 2, 3].map((item) => <div key={item} className={`mb-2 h-5 border border-white/5 px-1.5 transition-all duration-500 ${frame === item ? 'border-[#d5ff65]/40 bg-[#d5ff65]/10' : 'bg-white/[.02]'}`}><span className="block h-1 mt-1.5 w-8 bg-white/10" /></div>)}
+          </div>
+          <div className="border border-white/10 bg-[#14161c] p-3 transition-all duration-500">
+            <div className="flex items-center justify-between">
+              <span className="mono text-[7px] uppercase tracking-[.14em] text-[#d5ff65]">{current.label}</span>
+              <span className="mono text-[7px] text-white/25">0{frame + 1} / 04</span>
+            </div>
+            <div className="mt-3 flex gap-2">
+              <div className="h-6 w-6 rounded-full border border-white/15 bg-white/5" />
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] font-medium text-[#e8e7dc]">{current.title}</div>
+                <div className="mt-1 text-[8px] leading-relaxed text-[#8f918c]">{current.body}</div>
+              </div>
+            </div>
+            <div className="mt-3 border-t border-white/10 pt-2">
+              <div className="flex items-center justify-between">
+                <span className="mono text-[7px] uppercase tracking-[.12em] text-white/30">memory</span>
+                <span className="mono text-[7px] text-[#d5ff65]">{current.context}</span>
+              </div>
+              <div className="mt-2 h-1.5 w-full overflow-hidden bg-white/5"><div className="h-full bg-[#d5ff65]/50 transition-all duration-700" style={{ width: `${35 + frame * 20}%` }} /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="flex gap-1 border-t border-white/10 px-3 py-2">
+        {frames.map((_, index) => <span key={index} className={`h-px flex-1 transition-all duration-500 ${index === frame ? 'bg-[#d5ff65]' : 'bg-white/10'}`} />)}
+      </div>
+    </div>
+  );
+}
+''')
+      - name: Remove patch workflow and commit
+        run: |
+          rm .github/workflows/known-modal-animation-experiment.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add artifacts/breeze-portfolio/src/App.tsx artifacts/breeze-portfolio/src/components/known-animation-preview.tsx .github/workflows/known-modal-animation-experiment.yml
+          git commit -m "feat: preview Known animation in project modal"
+          git push
