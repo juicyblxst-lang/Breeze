@@ -55,7 +55,7 @@ export const portfolio = {
       description: 'An AI customer-memory system that turns inboxes and customer history into structured, usable context for intelligent customer interactions.',
       detail: 'Known connects customer data sources such as Gmail and order-history CSVs, transforms them into structured customer profiles, and gives AI systems persistent memory they can use to understand customers and respond with relevant context instead of starting from zero every time.',
       status: 'Featured',
-      accent: '#ff9d8d',
+      accent: '#d5ff65',
       index: '03',
     },
     {
