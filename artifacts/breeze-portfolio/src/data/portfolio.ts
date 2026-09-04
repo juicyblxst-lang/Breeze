@@ -33,6 +33,7 @@ export const portfolio = {
       status: 'Featured',
       accent: '#d5ff65',
       index: '01',
+      link: 'https://gizmo-user-interface.vercel.app/',
     },
     {
       id: 'agentforge',
